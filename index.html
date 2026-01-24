@@ -35,10 +35,10 @@
   </div>
 
   <script>
-    // 🔴 CHANGE THIS LINK
-    const redirectLink = "https://www.google.com";
+    // 🔴 File to open after countdown
+    const nextPage = "reveal.html";
 
-    // 🔴 Target date: 6 February 2026, 00:00 IST
+    // 🔴 Target date & time
     const targetDate = new Date("February 6, 2026 00:00:00").getTime();
 
     const timer = setInterval(() => {
@@ -47,7 +47,7 @@
 
       if (diff <= 0) {
         clearInterval(timer);
-        window.location.href = redirectLink;
+        window.location.href = nextPage; // 👈 open HTML file
         return;
       }
 
