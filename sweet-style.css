@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #ffeef3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD */
+.card {
+  background: #f8eaea;
+  width: 92%;
+  max-width: 340px;
+  padding: 24px 22px 26px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  padding-top: 28px;   /* ensures text never clashes */
+}
+
+/* TEXT */
+h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #ff5f8a;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #888;
+  margin: 6px 0 18px;
+}
+
+/* 🎂 CAKE */
+.cake {
+  position: relative;
+  width: 140px;
+  height: 120px;              /* IMPORTANT: extra vertical space */
+  margin: 10px auto 18px;
+}
+
+/* cake base */
+.cake::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #ffd1dc;
+  border-radius: 12px;
+}
+
+/* 🕯️ CANDLE */
+.candle {
+  position: absolute;
+  bottom: 70px;              /* sits ON cake */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+/* 🔥 FLAME */
+.flame {
+  position: absolute;
+  bottom: 102px;             /* above candle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 20px;
+  background: radial-gradient(circle, #fff3b0 30%, #ff9f45 70%);
+  border-radius: 50%;
+  animation: flicker 0.25s infinite alternate;
+  box-shadow: 0 0 8px rgba(255,170,80,0.35);
+}
+
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1); }
+  to   { transform: translateX(-50%) scale(1.08); }
+}
+
+.flame.off {
+  display: none;
+}
+
+/* ✍️ INPUT */
+textarea {
+  width: 100%;
+  height: 72px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  font-size: 14px;
+  resize: none;
+  margin-bottom: 12px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #ff5f8a;
+}
+
+/* 💖 BUTTON */
+.main-btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 18px;
+  background: #ff5f8a;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.main-btn:hover {
+  background: #ff4576;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 🌬️ BLOW METER */
+.meter {
+  margin-top: 12px;
+  width: 100%;
+  height: 6px;
+  background: #f3f3f3;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.level {
+  height: 100%;
+  width: 0%;
+  background: #ff5f8a;
+  transition: width 0.1s;
+}
+/* 🎉 CONFETTI CANVAS */
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+}
+
