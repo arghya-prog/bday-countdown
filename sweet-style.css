@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #ffeef3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: #fff;
+  width: 90%;
+  max-width: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin: 0 0 15px;
+  color: #ff5f8a;
+}
+
+.cake {
+  position: relative;
+  width: 140px;
+  height: 120px;
+  margin: 0 auto 24px auto; /* force center */
+  display: flex;
+  justify-content: center;
+}
+
+.cake::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* 🔑 true centering */
+  width: 100%;
+  height: 70px;
+  background: #ffc1cf;
+  border-radius: 12px;
+}
+
+.candle {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 30px;
+  background: #f1e3e3;
+  border-radius: 3px;
+}
+
+.flame {
+  position: absolute;
+  bottom: 102px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 20px;
+  background: radial-gradient(circle, #fff3b0 30%, #ff9f45 70%);
+  border-radius: 50%;
+  animation: flicker 0.25s infinite alternate;
+  box-shadow: 0 0 8px rgba(255,170,80,0.4);
+}
+
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1); }
+  to { transform: translateX(-50%) scale(1.1); }
+}
+
+.flame.off {
+  display: none;
+}
+
+textarea {
+  width: 100%;
+  height: 70px;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid #eee;
+  margin-bottom: 12px;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 11px;
+  border-radius: 18px;
+  border: none;
+  background: #ff5f8a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.meter {
+  margin-top: 12px;
+  height: 6px;
+  background: #eee;
+  border-radius: 6px;
+}
+
+.level {
+  height: 100%;
+  width: 0%;
+  background: #ff5f8a;
+}
+
+/* confetti canvas */
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}

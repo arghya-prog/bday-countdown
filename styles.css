@@ -1,0 +1,159 @@
+:root {
+  --bg-1: #ff8ec7;
+  --bg-2: #ffc4e4;
+  --env: #f06bab;
+  --env-shadow: #d65191;
+  --paper: #fff8ff;
+  --ink: #9a2a62;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top left, var(--bg-2), var(--bg-1));
+  overflow: hidden;
+}
+
+.board {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1,
+.subtitle {
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  padding-top: 1rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.subtitle {
+  margin-top: 0.3rem;
+  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+  opacity: 0.9;
+}
+
+.envelope {
+  --tilt: 0deg;
+  position: absolute;
+  width: min(230px, 34vw);
+  aspect-ratio: 4 / 3;
+  transform: rotate(var(--tilt));
+  filter: drop-shadow(0 10px 10px rgba(120, 11, 67, 0.3));
+}
+
+.letter {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  bottom: 18%;
+  background: var(--paper);
+  border-radius: 10px;
+  border: 2px solid #ffd5f0;
+  padding: 0.8rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: transform 220ms ease;
+  z-index: 1;
+}
+
+.letter p {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.letter:active {
+  cursor: grabbing;
+}
+
+.letter.open {
+  transform: translateY(-58%);
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 45%, 50% 0%, 100% 45%, 100% 100%, 0 100%);
+  background: linear-gradient(to bottom, #f58abc, var(--env));
+  border: 2px solid var(--env-shadow);
+  border-radius: 8px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.body {
+  position: absolute;
+  inset: 42% 0 0;
+  background: linear-gradient(to bottom, #f06bab, #df4b91);
+  border: 2px solid var(--env-shadow);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.envelope-a {
+  top: 24%;
+  left: 8%;
+  --tilt: -9deg;
+}
+
+.envelope-b {
+  top: 20%;
+  right: 10%;
+  --tilt: 11deg;
+}
+
+.envelope-c {
+  bottom: 10%;
+  left: 24%;
+  --tilt: -5deg;
+}
+
+.envelope-d {
+  bottom: 14%;
+  right: 18%;
+  --tilt: 7deg;
+}
+
+@media (max-width: 720px) {
+  .envelope {
+    width: min(170px, 42vw);
+  }
+
+  .envelope-a {
+    top: 19%;
+    left: 6%;
+  }
+
+  .envelope-b {
+    top: 23%;
+    right: 6%;
+  }
+
+  .envelope-c {
+    bottom: 19%;
+    left: 9%;
+  }
+
+  .envelope-d {
+    bottom: 12%;
+    right: 9%;
+  }
+}
